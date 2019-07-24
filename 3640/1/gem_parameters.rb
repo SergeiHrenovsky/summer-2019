@@ -10,7 +10,7 @@ class GemParameters
     fetcher = new(repository, path)
     fetcher.fetch_contributors_count
     fetcher.fetch_used_by_count
-    fetcher.search_gem_parameters(repository)
+    fetcher.search_gem_parameters
     fetcher.gem_parameters
   end
 
@@ -32,8 +32,8 @@ class GemParameters
     @gem_parameters[:used_by] = used_by_count
   end
 
-  def search_gem_parameters(repository)
-    GEM_PARAMETERS_KEY_VALUE.each { |key, value| @gem_parameters[key] = repository[value].to_i }
+  def search_gem_parameters
+    GEM_PARAMETERS_KEY_VALUE.each { |key, value| @gem_parameters[key] = @repository[value].to_i }
   end
 
   private
