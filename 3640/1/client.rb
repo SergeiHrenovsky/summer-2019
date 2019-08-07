@@ -11,7 +11,7 @@ class Client
       client = Octokit::Client.new(access_token: fetch_token)
       client.user.login
     rescue Octokit::Unauthorized
-      puts 'Error. Entered invalid gem.'
+      puts 'Error. Entered invalid Personal Access Token.'
       retry
     end
     client
